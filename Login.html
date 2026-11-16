@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login - Hospital Management System</title>
+  <link rel="stylesheet" href="common.css">
+</head>
+<body>
+
+  <div id="loginScreen" class="box">
+    <h1>Hospital Login</h1>
+
+    <div class="hint">
+      Demo accounts (password 123456):<br>
+      admin@hms.com &middot; doctor@hms.com<br>
+      patient@hms.com &middot; pharmacist@hms.com
+    </div>
+
+    <label>Email</label>
+    <input type="text" id="loginEmail">
+
+    <label>Password</label>
+    <input type="password" id="loginPassword">
+
+    <button onclick="login()">Login</button>
+    <p>New user? <a href="#" onclick="showScreen('registerScreen')">Register here</a></p>
+  </div>
+
+  <div id="registerScreen" class="box hidden">
+    <h1>Registration</h1>
+
+    <label>Register as</label>
+    <select id="regRole" onchange="toggleRoleFields()">
+      <option value="">Select user type</option>
+      <option value="Patient">Patient</option>
+      <option value="Doctor">Doctor</option>
+      <option value="Pharmacist">Pharmacist</option>
+      <option value="Administrator">Administrator</option>
+    </select>
+
+    <label>Full Name</label>
+    <input type="text" id="regName">
+
+    <label>Email</label>
+    <input type="text" id="regEmail">
+
+    <label>Phone</label>
+    <input type="text" id="regPhone" placeholder="01XXXXXXXXX">
+
+    <div id="patientFields" class="hidden">
+      <label>Age</label>
+      <input type="number" id="regAge">
+
+      <label>Gender</label>
+      <select id="regGender">
+        <option value="">Select gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div id="doctorFields" class="hidden">
+      <label>Specialization</label>
+      <input type="text" id="regSpecialization" placeholder="e.g. Cardiology">
+    </div>
+
+    <label>Password</label>
+    <input type="password" id="regPassword">
+
+    <label>Confirm Password</label>
+    <input type="password" id="regConfirm">
+
+    <button onclick="register()">Register</button>
+    <p>Already have an account? <a href="#" onclick="showScreen('loginScreen')">Login here</a></p>
+  </div>
+
+  <script src="common.js"></script>
+  <script src="Login.js"></script>
+</body>
+</html>

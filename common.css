@@ -1,0 +1,161 @@
+/* common.css : shared styles for Login.html and Profile.html (same look as Patient / Pharmacist) */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  color: #1f2d3d;
+  background: linear-gradient(135deg, #e3f6f0 0%, #e8effc 100%);
+  background-attachment: fixed;
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  margin-top: 0;
+  color: #0f4c5c;
+}
+
+a {
+  color: #0f9d7a;
+  font-weight: bold;
+}
+
+.box {
+  width: 360px;
+  max-width: 90%;
+  margin: 60px auto;
+  padding: 30px;
+  background: white;
+  border-top: 6px solid #12b886;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(15, 76, 92, 0.2);
+}
+
+.hint {
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #3b4a5a;
+  background: #f4faf8;
+  border-radius: 8px;
+}
+
+label {
+  display: block;
+  margin-top: 14px;
+  font-weight: 600;
+  color: #3b4a5a;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 5px;
+  font-size: 15px;
+  border: 2px solid #d5e0e8;
+  border-radius: 8px;
+  box-sizing: border-box;
+  outline: none;
+  background: white;
+  font-family: inherit;
+}
+
+input:focus,
+select:focus {
+  border-color: #12b886;
+  box-shadow: 0 0 0 3px rgba(18, 184, 134, 0.2);
+}
+
+input[readonly] {
+  color: #6b7a8a;
+  background: #eef2f5;
+}
+
+button {
+  margin-top: 14px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #12b886, #0b8f6a);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(18, 184, 134, 0.35);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(18, 184, 134, 0.45);
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 24px;
+  color: white;
+  background: linear-gradient(90deg, #0f4c5c, #1b6ca8);
+  box-shadow: 0 4px 14px rgba(15, 76, 92, 0.35);
+}
+
+.menu b {
+  margin-right: 18px;
+  font-size: 20px;
+}
+
+.menu button {
+  margin: 0;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: none;
+}
+
+.menu button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: none;
+  box-shadow: none;
+}
+
+.menu button[onclick="logout()"] {
+  margin-left: auto;
+  background: #e8590c;
+}
+
+.menu button[onclick="logout()"]:hover {
+  background: #d9480f;
+}
+
+.content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 24px;
+}
+
+.form {
+  max-width: 420px;
+  padding: 20px;
+  margin-bottom: 24px;
+  background: white;
+  border-left: 6px solid #1b6ca8;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(15, 76, 92, 0.12);
+}
+
+.form h3 {
+  margin-top: 0;
+  color: #1b6ca8;
+}
+
+@media (max-width: 700px) {
+  .menu b {
+    width: 100%;
+  }
+
+  .content {
+    padding: 18px 12px;
+  }
+}
