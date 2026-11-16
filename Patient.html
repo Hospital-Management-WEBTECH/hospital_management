@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patient - Hospital Management System</title>
+  <link rel="stylesheet" href="Patient.css">
+</head>
+<body>
+
+  <div id="loginScreen" class="box">
+    <h1>Patient Login</h1>
+    <p>Demo: patient@mail.com / 123456</p>
+
+    <label>Email</label>
+    <input type="text" id="loginEmail">
+
+    <label>Password</label>
+    <input type="password" id="loginPassword">
+
+    <button onclick="login()">Login</button>
+    <p>New user? <a href="#" onclick="showScreen('registerScreen')">Register here</a></p>
+  </div>
+
+  <div id="registerScreen" class="box hidden">
+    <h1>Patient Registration</h1>
+
+    <label>Full Name</label>
+    <input type="text" id="regName">
+
+    <label>Email</label>
+    <input type="text" id="regEmail">
+
+    <label>Phone</label>
+    <input type="text" id="regPhone">
+
+    <label>Age</label>
+    <input type="number" id="regAge">
+
+    <label>Gender</label>
+    <select id="regGender">
+      <option value="">Select gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label>Password</label>
+    <input type="password" id="regPassword">
+
+    <label>Confirm Password</label>
+    <input type="password" id="regConfirm">
+
+    <button onclick="register()">Register</button>
+    <p>Already have an account? <a href="#" onclick="showScreen('loginScreen')">Login here</a></p>
+  </div>
+
+  <div id="appScreen" class="hidden">
+
+    <div class="menu">
+      <b>Hospital Patient Portal</b>
+      <button onclick="showPage('dashboardPage')">Dashboard</button>
+      <button onclick="showPage('doctorsPage')">Doctors</button>
+      <button onclick="showPage('bookPage')">Book Appointment</button>
+      <button onclick="showPage('appointmentsPage')">My Appointments</button>
+      <button onclick="showPage('profilePage')">Profile</button>
+      <button onclick="showPage('passwordPage')">Change Password</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+
+    <div class="content">
+
+      <div id="dashboardPage" class="page">
+        <h1>Dashboard</h1>
+        <p id="welcomeText"></p>
+        <div class="cards">
+          <div class="card">Total Appointments<br><span id="totalApt"></span></div>
+          <div class="card">Pending<br><span id="pendingApt"></span></div>
+          <div class="card">Approved<br><span id="approvedApt"></span></div>
+          <div class="card">Completed<br><span id="completedApt"></span></div>
+        </div>
+        <div class="form next-box">
+          <h3>Next Appointment</h3>
+          <p id="nextAppointment"></p>
+        </div>
+      </div>
+
+      <div id="doctorsPage" class="page hidden">
+        <h1>Available Doctors</h1>
+        <input type="text" id="doctorSearch" class="search" placeholder="Search by name or specialization" oninput="showDoctors()">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Specialization</th>
+              <th>Available Days</th>
+              <th>Fee (Tk)</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="doctorsTable"></tbody>
+        </table>
+      </div>
+
+      <div id="bookPage" class="page hidden">
+        <h1>Book Appointment</h1>
+        <div class="form">
+          <h3>New Appointment</h3>
+
+          <label>Doctor</label>
+          <select id="bookDoctor"></select>
+
+          <label>Date</label>
+          <input type="date" id="bookDate">
+
+          <label>Time</label>
+          <select id="bookTime">
+            <option value="">Select time</option>
+            <option>09:00 AM</option>
+            <option>10:00 AM</option>
+            <option>11:00 AM</option>
+            <option>12:00 PM</option>
+            <option>04:00 PM</option>
+            <option>05:00 PM</option>
+            <option>06:00 PM</option>
+          </select>
+
+          <label>Reason for visit</label>
+          <input type="text" id="bookReason" placeholder="e.g. Fever, checkup">
+
+          <button onclick="bookAppointment()">Book</button>
+          <button onclick="clearBookForm()">Clear</button>
+        </div>
+      </div>
+
+      <div id="appointmentsPage" class="page hidden">
+        <h1>My Appointments</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Doctor</th>
+              <th>Specialization</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Reason</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="appointmentsTable"></tbody>
+        </table>
+      </div>
+
+      <div id="profilePage" class="page hidden">
+        <h1>My Profile</h1>
+        <div class="form">
+          <label>Full Name</label>
+          <input type="text" id="profileName">
+
+          <label>Email</label>
+          <input type="text" id="profileEmail">
+
+          <label>Phone</label>
+          <input type="text" id="profilePhone">
+
+          <label>Age</label>
+          <input type="number" id="profileAge">
+
+          <label>Gender</label>
+          <select id="profileGender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <button onclick="saveProfile()">Save Profile</button>
+        </div>
+      </div>
+
+      <div id="passwordPage" class="page hidden">
+        <h1>Change Password</h1>
+        <div class="form">
+          <label>Current Password</label>
+          <input type="password" id="oldPassword">
+
+          <label>New Password</label>
+          <input type="password" id="newPassword">
+
+          <label>Confirm New Password</label>
+          <input type="password" id="confirmPassword">
+
+          <button onclick="changePassword()">Change Password</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="Patient.js"></script>
+</body>
+</html>
