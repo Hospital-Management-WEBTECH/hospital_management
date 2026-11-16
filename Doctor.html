@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Panel</title>
+    <link rel="stylesheet" href="Doctor.css">
+</head>
+
+<body onload="loadPage()">
+
+    <div class="top-links">
+        <a href="Profile.html">Profile</a>
+        <a href="Login.html" class="logout">Logout</a>
+    </div>
+
+    <h2>
+        Doctor Panel
+    </h2>
+
+    <p class="welcome">Welcome, <b id="doctorName"></b> (<span id="doctorSpecial"></span>)</p>
+
+    <div class="cards">
+        <div class="card">
+            <p>Total</p>
+            <span id="totalCount">0</span>
+        </div>
+        <div class="card">
+            <p>Pending</p>
+            <span id="pendingCount">0</span>
+        </div>
+        <div class="card">
+            <p>Approved</p>
+            <span id="approvedCount">0</span>
+        </div>
+        <div class="card">
+            <p>Completed</p>
+            <span id="completedCount">0</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3>My Appointment Schedule</h3>
+
+        <div class="filter">
+            <label for="statusFilter">Show:</label>
+            <select id="statusFilter" onchange="showAppointments()">
+                <option value="All">All</option>
+                <option value="Pending">Pending</option>
+                <option value="Approved">Approved</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+            </select>
+        </div>
+
+        <div class="table-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Patient</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                        <th>Change Status</th>
+                        <th>Patient Info</th>
+                        <th>Prescription</th>
+                    </tr>
+                </thead>
+                <tbody id="appointmentTable">
+                </tbody>
+            </table>
+        </div>
+
+        <p id="message" class="form-message"></p>
+    </div>
+
+    <div class="container hidden" id="patientBox">
+        <h3>Patient Information</h3>
+
+        <table class="info-table">
+            <tr>
+                <th>Appointment ID</th>
+                <td id="pAppointment"></td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td id="pName"></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td id="pEmail"></td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td id="pPhone"></td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td id="pAge"></td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td id="pGender"></td>
+            </tr>
+            <tr>
+                <th>Reason for Visit</th>
+                <td id="pReason"></td>
+            </tr>
+        </table>
+
+        <button type="button" onclick="hidePatient()">Close</button>
+    </div>
+
+    <div class="container hidden" id="prescriptionBox">
+        <h3>Write Prescription</h3>
+        <p class="sub-text" id="prescriptionFor"></p>
+
+        <form action="#" method="post" onsubmit="return savePrescription()" novalidate>
+
+            <div class="filter">
+                <label for="medicineSelect">Medicine:</label>
+                <select id="medicineSelect" name="medicine">
+                </select>
+
+                <label for="medicineQty" class="qty-label">Quantity:</label>
+                <input type="number" id="medicineQty" name="quantity" value="1">
+
+                <button type="button" class="small-button" onclick="addMedicine()">Add Medicine</button>
+            </div>
+
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Medicine</th>
+                            <th>Quantity</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="itemTable">
+                    </tbody>
+                </table>
+            </div>
+
+            <label for="presDate" class="block-label">Date:</label>
+            <input type="date" id="presDate" name="presDate">
+
+            <label for="advice" class="block-label">Advice / Notes:</label>
+            <textarea id="advice" name="advice" rows="3"></textarea>
+
+            <p id="prescriptionError" class="form-message error"></p>
+
+            <input type="submit" value="Save Prescription">
+
+            <input type="button" value="Cancel" onclick="hidePrescription()">
+        </form>
+    </div>
+
+    <div class="container">
+        <h3>My Prescriptions</h3>
+
+        <div class="table-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Patient</th>
+                        <th>Date</th>
+                        <th>Medicines</th>
+                        <th>Advice</th>
+                        <th>Pharmacy Status</th>
+                    </tr>
+                </thead>
+                <tbody id="prescriptionTable">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="Doctor.js"></script>
+</body>
+
+</html>
