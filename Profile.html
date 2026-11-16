@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Hospital Management System</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+
+<body>
+
+    <div class="menu">
+        <b>Hospital</b>
+        <a id="backLink" class="hidden" href="Login.html">Back to Dashboard</a>
+        <a class="logout-link" href="Login.html">Logout</a>
+    </div>
+
+    <h2>
+        My Profile
+    </h2>
+
+    <form id="checkForm" class="box" action="#" method="post" onsubmit="return openProfile()" novalidate>
+
+        <p class="hint">Please enter your email and password to open your profile.</p>
+
+        <label for="checkEmail">Email:</label><br>
+        <input type="email" id="checkEmail" required><br><br>
+
+        <label for="checkPassword">Password:</label><br>
+        <input type="password" id="checkPassword" required><br><br>
+
+        <p id="checkError" class="form-message error"></p>
+
+        <input type="submit" value="Open Profile">
+
+        <input type="reset" value="Reset">
+    </form>
+
+    <form id="profileForm" class="box hidden" action="#" method="post" onsubmit="return saveProfile()" novalidate>
+
+        <div class="hint" id="userInfo"></div>
+
+        <label for="fullname">Full Name:</label><br>
+        <input type="text" id="fullname" name="fullname" required><br><br>
+
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <div id="patientFields" class="hidden">
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age"><br><br>
+
+            <label>Gender:</label><br>
+
+            <input type="radio" id="male" name="gender" value="Male">
+            <label for="male">Male</label>
+
+            <input type="radio" id="female" name="gender" value="Female">
+            <label for="female">Female</label>
+
+            <input type="radio" id="other" name="gender" value="Other">
+            <label for="other">Other</label><br><br>
+        </div>
+
+        <div id="doctorFields" class="hidden">
+            <label for="specialization">Specialization:</label><br>
+            <input type="text" id="specialization" name="specialization"><br><br>
+        </div>
+
+        <p id="profileMessage" class="form-message error"></p>
+
+        <input type="submit" value="Save Profile">
+    </form>
+
+    <h2 id="passwordTitle" class="hidden">
+        Change Password
+    </h2>
+
+    <form id="passwordForm" class="box hidden" action="#" method="post" onsubmit="return changePassword()" novalidate>
+
+        <label for="currentPassword">Current Password:</label><br>
+        <input type="password" id="currentPassword" name="currentPassword" required><br><br>
+
+        <label for="newPassword">New Password:</label><br>
+        <input type="password" id="newPassword" name="newPassword" required><br><br>
+
+        <label for="confirmPassword">Confirm New Password:</label><br>
+        <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
+
+        <p id="passwordMessage" class="form-message error"></p>
+
+        <input type="submit" value="Change Password">
+
+        <input type="reset" value="Reset">
+    </form>
+
+    <script src="common.js"></script>
+    <script src="Profile.js"></script>
+</body>
+
+</html>

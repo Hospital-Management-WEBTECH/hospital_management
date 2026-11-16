@@ -1,0 +1,203 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    color: #1f2d3d;
+    background: linear-gradient(135deg, #e3f6f0 0%, #e8effc 100%);
+    background-attachment: fixed;
+}
+
+.hidden {
+    display: none;
+}
+
+br {
+    display: none;
+}
+
+h2 {
+    margin: 50px auto 0;
+    text-align: center;
+    font-size: 34px;
+    color: #0f4c5c;
+}
+
+a {
+    color: #0f9d7a;
+    font-weight: bold;
+}
+
+.box {
+    width: 400px;
+    max-width: 90%;
+    margin: 20px auto 40px;
+    padding: 30px;
+    background: white;
+    border-top: 6px solid #12b886;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(15, 76, 92, 0.2);
+}
+
+.hint {
+    margin: 0 0 6px;
+    padding: 10px 12px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #3b4a5a;
+    background: #f4faf8;
+    border-radius: 8px;
+}
+
+.hint p {
+    margin: 0;
+}
+
+label {
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #3b4a5a;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+select {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 15px;
+    font-family: inherit;
+    background: white;
+    border: 2px solid #d5e0e8;
+    border-radius: 8px;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #12b886;
+    box-shadow: 0 0 0 3px rgba(18, 184, 134, 0.2);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 14px 4px 0 0;
+    vertical-align: middle;
+    accent-color: #12b886;
+    cursor: pointer;
+}
+
+input[type="radio"]+label,
+input[type="checkbox"]+label {
+    display: inline-block;
+    margin: 14px 16px 0 0;
+    font-weight: 500;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    margin-top: 18px;
+    margin-right: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform .1s;
+}
+
+input[type="submit"] {
+    color: white;
+    background: linear-gradient(135deg, #12b886, #0b8f6a);
+    box-shadow: 0 4px 10px rgba(18, 184, 134, 0.35);
+}
+
+input[type="reset"] {
+    color: #1f2d3d;
+    background: #e9ecef;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    transform: translateY(-2px);
+}
+
+.form-message {
+    margin: 14px 0 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.error {
+    color: #e03131;
+}
+
+.success {
+    color: #0b8f6a;
+}
+
+.bottom-text {
+    margin: 18px 0 0;
+    font-size: 14px;
+}
+
+.menu {
+    padding: 12px 24px;
+    color: white;
+    background: linear-gradient(90deg, #0f4c5c, #1b6ca8);
+    box-shadow: 0 4px 14px rgba(15, 76, 92, 0.35);
+}
+
+.menu b {
+    margin-right: 18px;
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+.menu a {
+    display: inline-block;
+    margin: 2px;
+    padding: 8px 18px;
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+}
+
+.menu a:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.menu .logout-link {
+    float: right;
+    background: #e8590c;
+}
+
+.menu .logout-link:hover {
+    background: #d9480f;
+}
+
+@media (max-width: 480px) {
+    .box {
+        padding: 22px 18px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Hospital Management System</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+
+<body>
+
+    <h2 id="loginTitle">
+        Hospital Login
+    </h2>
+
+    <form id="loginForm" class="box" action="#" method="get" onsubmit="return validateLogin()" novalidate>
+
+        <div class="hint">
+            <p>Demo accounts (password 123456):</p>
+            <p>admin@hms.com &middot; doctor@hms.com</p>
+            <p>patient@hms.com &middot; pharmacist@hms.com</p>
+        </div>
+
+        <label for="loginEmail">Email:</label><br>
+        <input type="email" id="loginEmail" required><br><br>
+
+        <label for="loginPassword">Password:</label><br>
+        <input type="password" id="loginPassword" required><br><br>
+
+        <p id="loginError" class="form-message error"></p>
+
+        <input type="submit" value="Login">
+
+        <input type="reset" value="Reset">
+
+        <p class="bottom-text">New user? <a href="#" onclick="showRegister()">Register here</a></p>
+    </form>
+
+    <h2 id="registerTitle" class="hidden">
+        Registration
+    </h2>
+
+    <form id="registerForm" class="box hidden" action="#" method="post" onsubmit="return validateRegister()" novalidate>
+
+        <label for="role">Register as:</label><br>
+        <select id="role" name="role" onchange="showRoleFields()">
+            <option value="">Select user type</option>
+            <option value="Patient">Patient</option>
+            <option value="Doctor">Doctor</option>
+            <option value="Pharmacist">Pharmacist</option>
+            <option value="Administrator">Administrator</option>
+        </select><br><br>
+
+        <label for="fullname">Full Name:</label><br>
+        <input type="text" id="fullname" name="fullname" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <div id="patientFields" class="hidden">
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age"><br><br>
+
+            <label>Gender:</label><br>
+
+            <input type="radio" id="male" name="gender" value="Male">
+            <label for="male">Male</label>
+
+            <input type="radio" id="female" name="gender" value="Female">
+            <label for="female">Female</label>
+
+            <input type="radio" id="other" name="gender" value="Other">
+            <label for="other">Other</label><br><br>
+        </div>
+
+        <div id="doctorFields" class="hidden">
+            <label for="specialization">Specialization:</label><br>
+            <input type="text" id="specialization" name="specialization"><br><br>
+        </div>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="confirmPassword">Confirm Password:</label><br>
+        <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
+
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to the Terms and Conditions</label><br><br>
+
+        <p id="registerError" class="form-message error"></p>
+
+        <input type="submit" value="Register">
+
+        <input type="reset" value="Reset">
+
+        <p class="bottom-text">Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
+    </form>
+
+    <script src="common.js"></script>
+    <script src="Login.js"></script>
+</body>
+
+</html>
