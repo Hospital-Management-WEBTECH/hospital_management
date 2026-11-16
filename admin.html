@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrator Dashboard</title>
+  <link rel="stylesheet" href="css/shared.css">
+</head>
+<body>
+
+
+  
+  <aside class="sidebar-parent-container">
+    <nav class="brand-logo">
+      <div class="logo">
+        <img src="images/logo.png" alt="CareFlow logo">
+      </div>
+      <div class="logo-txt">
+        <h3>CareFlow</h3>
+      </div>
+    </nav>
+
+    <p>Workspace: Administrator</p>
+
+    <nav class="side-navbar" aria-label="Administrator navigation">
+      <ul>
+        <li>
+          <img class="navicon" src="icon/dash.png" alt="">
+          <a href="administrator.html">Dashboard</a>
+        </li>
+        <li>
+          <img class="navicon" src="icon/doc.png" alt="">
+          <a href="administrator-doctors.html">Manage Doctors</a>
+        </li>
+        <li>
+          <img class="navicon" src="icon/pat.png" alt="">
+          <a href="administrator-patients.html">Manage Patients</a>
+        </li>
+        <li>
+          <img class="navicon" src="icon/apt.png" alt="">
+          <a href="administrator-appointments.html">Manage Appointments</a>
+        </li>
+        <li class="logout">
+          <img class="navicon" src="icon/logout.png" alt="">
+          <a href="#">Logout</a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="content-container">
+    <header class="topbar">
+  <div class="topbar-title">
+    <p>Workspace / Administrator</p>
+    <h1>Administrator workspace</h1>
+  </div>
+
+  <div class="topbar-actions">
+    <input type="search" placeholder="⌕  Search anything" aria-label="Search">
+
+    <button class="notification-button" type="button" aria-label="Notifications">
+      ♧
+    </button>
+
+    <div class="profile">
+      <div class="profile-avatar">SH</div>
+      <div>
+        <strong>Soharab H.</strong>
+        <span>Administrator</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+    <section class="welcome">
+      <h2>Good morning, Soharab</h2>
+      <p>Here’s what’s happening across your hospital today.</p>
+    </section>
+
+    <section class="summary-cards" aria-label="Hospital summary">
+      <article class="card">
+        <p>Total doctors</p>
+        <h3>48</h3>
+        <span>4 added this month</span>
+      </article>
+
+      <article class="card">
+        <p>Registered patients</p>
+        <h3>1,284</h3>
+        <span>Patient records</span>
+      </article>
+
+      <article class="card">
+        <p>Appointments today</p>
+        <h3>36</h3>
+        <span>8 awaiting approval</span>
+      </article>
+
+      <article class="card">
+        <p>Pending requests</p>
+        <h3>9</h3>
+        <span>Needs your attention</span>
+      </article>
+    </section>
+
+
+
+
+
+
+    <section class="dashboard-lower">
+
+
+
+      <div class="panel appointments-panel">
+
+
+        <div class="panel-heading">
+          <div>
+            <h2>Recent appointments</h2>
+            <p>Manage today’s patient visits</p>
+
+          </div>
+          <div>
+          </div>
+          <a href="administrator-appointments.html">View all</a>
+        </div>
+
+
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Patient</th>
+                <th>Doctor</th>
+                <th>Date &amp; time</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ayesha Rahman</td>
+                <td>Dr. Ashfaq</td>
+                <td>Today, 09:30</td>
+                <td><span class="status approved">Approved</span></td>
+              </tr>
+              <tr>
+                <td>Tanvir Ahmed</td>
+                <td>Dr. Nadia</td>
+                <td>Today, 10:15</td>
+                <td><span class="status pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td>Nusrat Jahan</td>
+                <td>Dr. Kamal</td>
+                <td>Today, 11:00</td>
+                <td><span class="status approved">Approved</span></td>
+              </tr>
+              <tr>
+                <td>Rafi Islam</td>
+                <td>Dr. Ashfaq</td>
+                <td>Today, 12:30</td>
+                <td><span class="status completed">Completed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <aside class="right-column">
+        <section class="panel">
+          <h2>Quick actions</h2>
+          <p>Common administrator tasks</p>
+          <a class="action-button" href="administrator-doctors.html">Add new doctor</a>
+          <a class="text-action" href="administrator-patients.html">Manage patients</a>
+          <a class="text-action" href="administrator-appointments.html">Review appointments</a>
+        </section>
+
+        <section class="panel">
+          <h2>System activity</h2>
+          <ul class="activity-list">
+            <li>New patient registered</li>
+            <li>Appointment approved</li>
+            <li>Doctor profile updated</li>
+          </ul>
+        </section>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>
