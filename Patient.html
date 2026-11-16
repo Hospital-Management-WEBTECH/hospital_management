@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patient - Hospital Management System</title>
+  <link rel="stylesheet" href="Patient.css">
+</head>
+<body>
+
+  <div id="appScreen">
+
+    <div class="menu">
+      <b>Hospital Patient Portal</b>
+      <button onclick="showPage('dashboardPage')">Dashboard</button>
+      <button onclick="showPage('doctorsPage')">Doctors</button>
+      <button onclick="showPage('bookPage')">Book Appointment</button>
+      <button onclick="showPage('appointmentsPage')">My Appointments</button>
+      <button onclick="window.location='Profile.html'">Profile</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+
+    <div class="content">
+
+      <div id="dashboardPage" class="page">
+        <h1>Dashboard</h1>
+        <p id="welcomeText"></p>
+        <div class="cards">
+          <div class="card">Total Appointments<br><span id="totalApt"></span></div>
+          <div class="card">Pending<br><span id="pendingApt"></span></div>
+          <div class="card">Approved<br><span id="approvedApt"></span></div>
+          <div class="card">Completed<br><span id="completedApt"></span></div>
+        </div>
+        <div class="form next-box">
+          <h3>Next Appointment</h3>
+          <p id="nextAppointment"></p>
+        </div>
+      </div>
+
+      <div id="doctorsPage" class="page hidden">
+        <h1>Available Doctors</h1>
+        <input type="text" id="doctorSearch" class="search" placeholder="Search by name or specialization" oninput="showDoctors()">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Specialization</th>
+              <th>Available Days</th>
+              <th>Fee (Tk)</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="doctorsTable"></tbody>
+        </table>
+      </div>
+
+      <div id="bookPage" class="page hidden">
+        <h1>Book Appointment</h1>
+        <div class="form">
+          <h3>New Appointment</h3>
+
+          <label>Doctor</label>
+          <select id="bookDoctor"></select>
+
+          <label>Date</label>
+          <input type="date" id="bookDate">
+
+          <label>Time</label>
+          <select id="bookTime">
+            <option value="">Select time</option>
+            <option>09:00 AM</option>
+            <option>10:00 AM</option>
+            <option>11:00 AM</option>
+            <option>12:00 PM</option>
+            <option>04:00 PM</option>
+            <option>05:00 PM</option>
+            <option>06:00 PM</option>
+          </select>
+
+          <label>Reason for visit</label>
+          <input type="text" id="bookReason" placeholder="e.g. Fever, checkup">
+
+          <button onclick="bookAppointment()">Book</button>
+          <button onclick="clearBookForm()">Clear</button>
+        </div>
+      </div>
+
+      <div id="appointmentsPage" class="page hidden">
+        <h1>My Appointments</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Doctor</th>
+              <th>Specialization</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Reason</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="appointmentsTable"></tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="common.js"></script>
+  <script src="Patient.js"></script>
+</body>
+</html>
