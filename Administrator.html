@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrator Dashboard</title>
+  <link rel="stylesheet" href="Administrator.css">
+</head>
+<body>
+
+  <aside class="sidebar-parent-container">
+    <nav class="side-navbar" aria-label="Logout">
+      <ul>
+        <li class="top-logout">
+          <img class="navicon" src="icon/logout.png" alt="">
+          <a href="#" onclick="logout()">Logout</a>
+        </li>
+      </ul>
+    </nav>
+
+    <p>Workspace: Administrator</p>
+
+    <nav class="side-navbar" aria-label="Administrator navigation">
+      <ul>
+        <li id="dashboardLink" class="active">
+          <img class="navicon" src="icon/dash.png" alt="">
+          <a href="#" onclick="showPage('dashboardPage')">Dashboard</a>
+        </li>
+        <li id="doctorsLink">
+          <img class="navicon" src="icon/doc.png" alt="">
+          <a href="#" onclick="showPage('doctorsPage')">Manage Doctors</a>
+        </li>
+        <li id="patientsLink">
+          <img class="navicon" src="icon/pat.png" alt="">
+          <a href="#" onclick="showPage('patientsPage')">Manage Patients</a>
+        </li>
+        <li id="appointmentsLink">
+          <img class="navicon" src="icon/apt.png" alt="">
+          <a href="#" onclick="showPage('appointmentsPage')">Manage Appointments</a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="content-container">
+    <header class="topbar">
+      <div class="topbar-title">
+        <p id="pathText">Workspace / Administrator</p>
+        <h1 id="pageTitle">Administrator workspace</h1>
+      </div>
+
+      <div class="topbar-actions">
+        <input type="search" id="searchBox" placeholder="⌕  Search anything" aria-label="Search" oninput="searchPage()">
+
+        <button class="notification-button" type="button" aria-label="Notifications" title="Pending appointments" onclick="showPendingAppointments()">
+          ♧
+        </button>
+
+        <div class="profile" onclick="window.location='Profile.html'" title="My profile">
+          <div class="profile-avatar" id="avatarText"></div>
+          <div>
+            <strong id="profileName"></strong>
+            <span>Administrator</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== Dashboard ===== -->
+    <div id="dashboardPage" class="page">
+      <section class="welcome">
+        <h2 id="welcomeText"></h2>
+        <p>Here’s what’s happening across your hospital today.</p>
+      </section>
+
+      <section class="summary-cards" aria-label="Hospital summary">
+        <article class="card">
+          <p>Total doctors</p>
+          <h3 id="totalDoctors"></h3>
+          <span>Available for booking</span>
+        </article>
+
+        <article class="card">
+          <p>Registered patients</p>
+          <h3 id="totalPatients"></h3>
+          <span>Patient records</span>
+        </article>
+
+        <article class="card">
+          <p>Appointments today</p>
+          <h3 id="todayAppointments"></h3>
+          <span id="totalAppointmentsText"></span>
+        </article>
+
+        <article class="card">
+          <p>Pending requests</p>
+          <h3 id="pendingAppointments"></h3>
+          <span>Needs your attention</span>
+        </article>
+      </section>
+
+      <section class="dashboard-lower">
+        <div class="panel appointments-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Recent appointments</h2>
+              <p>Latest patient bookings</p>
+            </div>
+            <a href="#" onclick="showPage('appointmentsPage')">View all</a>
+          </div>
+
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Patient</th>
+                  <th>Doctor</th>
+                  <th>Date &amp; time</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="recentTable"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <aside class="right-column">
+          <section class="panel">
+            <h2>Quick actions</h2>
+            <p>Common administrator tasks</p>
+            <a class="action-button" href="#" onclick="showPage('doctorsPage')">Add new doctor</a>
+            <a class="text-action" href="#" onclick="showPage('patientsPage')">Manage patients</a>
+            <a class="text-action" href="#" onclick="showPage('appointmentsPage')">Review appointments</a>
+          </section>
+
+          <section class="panel">
+            <h2>System activity</h2>
+            <ul class="activity-list" id="activityList"></ul>
+          </section>
+        </aside>
+      </section>
+    </div>
+
+    <!-- ===== Manage Doctors ===== -->
+    <div id="doctorsPage" class="page hidden">
+      <section class="welcome">
+        <h2>Manage Doctors</h2>
+        <p>Add, edit and delete doctor information.</p>
+      </section>
+
+      <section class="manage-layout">
+        <div class="panel form-panel">
+          <h2 id="doctorFormTitle">Add new doctor</h2>
+          <p>Patients can book the doctors in this list.</p>
+
+          <label for="docName">Doctor name</label>
+          <input type="text" id="docName" placeholder="e.g. Dr. Nadia">
+
+          <label for="docSpecialization">Specialization</label>
+          <input type="text" id="docSpecialization" placeholder="e.g. Cardiology">
+
+          <label for="docDays">Available days</label>
+          <input type="text" id="docDays" placeholder="e.g. Sat, Mon, Wed">
+
+          <label for="docFee">Fee (Tk)</label>
+          <input type="number" id="docFee" placeholder="e.g. 800">
+
+          <label for="docEmail">Login email (optional)</label>
+          <input type="text" id="docEmail" placeholder="Doctor's account email">
+
+          <button class="primary-button" type="button" onclick="saveDoctor()">Save doctor</button>
+          <button class="secondary-button" type="button" onclick="clearDoctorForm()">Clear</button>
+        </div>
+
+        <div class="panel appointments-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Doctors</h2>
+              <p id="doctorCountText"></p>
+            </div>
+          </div>
+
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Specialization</th>
+                  <th>Days</th>
+                  <th>Fee (Tk)</th>
+                  <th>Login email</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="doctorsTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== Manage Patients ===== -->
+    <div id="patientsPage" class="page hidden">
+      <section class="welcome">
+        <h2>Manage Patients</h2>
+        <p>View and manage registered patient information.</p>
+      </section>
+
+      <section class="manage-layout">
+        <div class="panel form-panel hidden" id="patientFormPanel">
+          <h2>Edit patient</h2>
+          <p id="patientFormEmail"></p>
+
+          <label for="patName">Full name</label>
+          <input type="text" id="patName">
+
+          <label for="patPhone">Phone</label>
+          <input type="text" id="patPhone">
+
+          <label for="patAge">Age</label>
+          <input type="number" id="patAge">
+
+          <label for="patGender">Gender</label>
+          <select id="patGender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <button class="primary-button" type="button" onclick="savePatient()">Save patient</button>
+          <button class="secondary-button" type="button" onclick="clearPatientForm()">Cancel</button>
+        </div>
+
+        <div class="panel appointments-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Registered patients</h2>
+              <p id="patientCountText"></p>
+            </div>
+          </div>
+
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Age</th>
+                  <th>Gender</th>
+                  <th>Appointments</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="patientsTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== Manage Appointments ===== -->
+    <div id="appointmentsPage" class="page hidden">
+      <section class="welcome">
+        <h2>Manage Appointments</h2>
+        <p>View, update and delete all appointments.</p>
+      </section>
+
+      <div class="panel appointments-panel">
+        <div class="panel-heading">
+          <div>
+            <h2>All appointments</h2>
+            <p id="appointmentCountText"></p>
+          </div>
+          <select id="statusFilter" class="status-filter" onchange="showAppointments()">
+            <option value="All">All statuses</option>
+            <option value="Pending">Pending</option>
+            <option value="Approved">Approved</option>
+            <option value="Completed">Completed</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+        </div>
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Patient</th>
+                <th>Doctor</th>
+                <th>Date &amp; time</th>
+                <th>Reason</th>
+                <th>Status</th>
+                <th>Change status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="appointmentsTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="Administrator.js"></script>
+</body>
+</html>

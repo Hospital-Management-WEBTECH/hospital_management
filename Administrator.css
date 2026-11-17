@@ -1,0 +1,609 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f3f6fa;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.sidebar-parent-container {
+  width: 237px;
+  min-height: 100vh;
+  flex-shrink: 0;
+  padding: 20px 14px;
+  background-color: #122940;
+  color: #8292a1;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 60px;
+  color: #f5f7fa;
+}
+
+.logo img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.logo-txt h3 {
+  margin: 0;
+}
+
+.sidebar-parent-container > p {
+  margin: 28px 10px 16px;
+  font-size: 13px;
+}
+
+.side-navbar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.side-navbar li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.side-navbar li:hover {
+  background-color: #1d405d;
+}
+
+.navicon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.side-navbar a {
+  color: #f5f7fa;
+  text-decoration: none;
+}
+.side-navbar .logout{
+    padding-top: 350px;
+    color: red;
+}
+.side-navbar .logout a{
+    color: red;
+}
+/* Main dashboard */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e3e9ef;
+}
+
+.topbar-title p {
+  margin: 0 0 6px;
+  color: #718096;
+  font-size: 13px;
+}
+
+.topbar-title h1 {
+  margin: 0;
+  color: #243244;
+  font-size: 21px;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.topbar-actions input {
+  width: 205px;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 9px;
+  outline: none;
+  background: #f3f6fa;
+  color: #243244;
+    box-shadow: 0 2px 8px rgba(30, 50, 70, 0.06);
+
+}
+
+.notification-button {
+    font-size: 30px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 9px;
+  background: #f3f6fa;
+  color: #243244;
+  cursor: pointer;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #243244;
+  font-size: 13px;
+}
+
+.profile-avatar {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 50%;
+  background: #dff5f2;
+  color: #07998e;
+  font-weight: bold;
+}
+
+.profile span {
+  display: block;
+  margin-top: 3px;
+  color: #718096;
+  font-size: 11px;
+}
+
+@media (max-width: 700px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .topbar-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .topbar-actions input {
+    flex: 1;
+    min-width: 150px;
+  }
+}
+.content-container {
+  flex: 1;
+  min-width: 0;
+  padding: 28px 32px;
+  color: #243244;
+}
+
+.topbar {
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e3e9ef;
+}
+
+.topbar p {
+  margin: 0 0 6px;
+  color: #718096;
+  font-size: 13px;
+}
+
+.topbar h1 {
+  margin: 0;
+  color: #243244;
+  font-size: 21px;
+}
+
+.welcome {
+  margin: 28px 0;
+}
+
+.welcome h2 {
+  margin: 0 0 8px;
+  color: #202c3a;
+  font-size: 30px;
+}
+
+.welcome p {
+  margin: 0;
+  color: #718096;
+}
+
+/* Summary cards */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.summary-cards .card {
+  min-width: 0;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(30, 50, 70, 0.06);
+}
+
+.card p {
+  margin: 0 0 10px;
+  color: #718096;
+  font-size: 14px;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  color: #243244;
+  font-size: 28px;
+}
+
+.card span {
+  color: #087f78;
+  font-size: 12px;
+}
+
+/* Appointments and right-side panels */
+.dashboard-lower {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(230px, 0.9fr);
+  gap: 20px;
+  align-items: start;
+  margin-top: 24px;
+}
+
+.panel {
+  padding: 22px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(30, 50, 70, 0.06);
+}
+
+.appointments-panel {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.panel-heading h2,
+.panel h2 {
+  margin: 0 0 6px;
+  color: #243244;
+  font-size: 20px;
+}
+
+.panel-heading p,
+.panel > p {
+  margin: 0;
+  color: #718096;
+  font-size: 14px;
+}
+
+.panel-heading a {
+  color: #087f78;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Appointments table */
+.table-scroll {
+  overflow-x: auto;
+}
+
+.appointments-panel table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.appointments-panel th,
+.appointments-panel td {
+  padding: 14px 10px;
+  border-bottom: 1px solid #e3e9ef;
+}
+
+.appointments-panel th {
+  color: #718096;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.appointments-panel td {
+  color: #526174;
+  font-size: 14px;
+}
+
+.appointments-panel td:first-child {
+  color: #243244;
+  font-weight: bold;
+}
+
+.appointments-panel tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Appointment status labels */
+.status {
+  display: inline-block;
+  min-width: 88px;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.status.approved {
+  background: #e1f6ec;
+  color: #13834b;
+}
+
+.status.pending {
+  background: #fff2d9;
+  color: #a96200;
+}
+
+.status.completed {
+  background: #e5efff;
+  color: #2464c5;
+}
+
+/* Quick actions and activity */
+.right-column {
+  display: grid;
+  gap: 20px;
+}
+
+.action-button,
+.text-action {
+  display: block;
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.action-button {
+  background: #0c9f95;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+.action-button:hover {
+  background: #087f78;
+}
+
+.text-action {
+  color: #243244;
+  font-weight: bold;
+}
+
+.text-action:hover {
+  background: #f3f6fa;
+}
+
+.activity-list {
+  margin: 16px 0 0;
+  padding-left: 20px;
+  color: #718096;
+  font-size: 14px;
+}
+
+.activity-list li {
+  margin: 12px 0;
+}
+
+/* Responsive layout */
+@media (max-width: 1000px) {
+  .summary-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-lower {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  body {
+    display: block;
+  }
+
+  .sidebar-parent-container {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .side-navbar ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .side-navbar li {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .content-container {
+    padding: 22px 16px;
+  }
+
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome h2 {
+    font-size: 25px;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+}
+/* ===== Added for the working admin panel ===== */
+
+.hidden {
+  display: none;
+}
+
+/* selected sidebar link */
+.side-navbar li.active {
+  background-color: #1d405d;
+}
+
+.profile {
+  cursor: pointer;
+}
+
+/* Cancelled status label */
+.status.cancelled {
+  background: #fde8e8;
+  color: #c53030;
+}
+
+/* Manage pages: form on the left, table on the right */
+.manage-layout {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.9fr) minmax(0, 2fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.manage-layout .form-panel.hidden + .appointments-panel {
+  grid-column: 1 / -1;
+}
+
+.form-panel label {
+  display: block;
+  margin: 16px 0 6px;
+  color: #243244;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.form-panel input,
+.form-panel select,
+.status-filter,
+.status-select {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid #e3e9ef;
+  border-radius: 9px;
+  outline: none;
+  background: #f3f6fa;
+  color: #243244;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.form-panel input:focus,
+.form-panel select:focus,
+.status-filter:focus,
+.status-select:focus {
+  border-color: #0c9f95;
+  background: #fff;
+}
+
+.status-filter {
+  width: 170px;
+}
+
+.status-select {
+  width: auto;
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+/* Buttons (same colours as the quick action button) */
+.primary-button,
+.secondary-button,
+.small-button {
+  border: 0;
+  border-radius: 8px;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.primary-button,
+.secondary-button {
+  margin-top: 20px;
+  margin-right: 8px;
+  padding: 12px 18px;
+  font-size: 14px;
+}
+
+.primary-button {
+  background: #0c9f95;
+  color: #fff;
+}
+
+.primary-button:hover {
+  background: #087f78;
+}
+
+.secondary-button {
+  background: #f3f6fa;
+  color: #243244;
+}
+
+.secondary-button:hover {
+  background: #e3e9ef;
+}
+
+.small-button {
+  margin: 2px 0;
+  padding: 7px 12px;
+  font-size: 12px;
+}
+
+.edit-button {
+  background: #e5efff;
+  color: #2464c5;
+}
+
+.edit-button:hover {
+  background: #d3e3ff;
+}
+
+.delete-button {
+  background: #fde8e8;
+  color: #c53030;
+}
+
+.delete-button:hover {
+  background: #fbd5d5;
+}
+
+@media (max-width: 1000px) {
+  .manage-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Logout button at the top of the sidebar */
+.side-navbar .top-logout {
+  border: 1px solid rgba(255, 99, 99, 0.35);
+}
+
+.side-navbar .top-logout a {
+  color: #ff6b6b;
+}
+
+.side-navbar .top-logout:hover {
+  background-color: rgba(255, 99, 99, 0.12);
+}
